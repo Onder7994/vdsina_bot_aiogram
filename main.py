@@ -81,6 +81,10 @@ async def account_forecast(message: types.Message):
     else:
         await message.answer("Это операция не разрешена для этого чата")
 
+@dp.message(Command("help"))
+async def help_cmd(message: types.Message):
+    await message.answer("Для началы работы с ботом напишите /start")
+
 @dp.callback_query(F.data == "help")
 async def help(callback: types.CallbackQuery):
     await callback.message.answer("Для началы работы с ботом напишите /start")
